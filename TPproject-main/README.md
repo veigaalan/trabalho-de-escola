@@ -21,5 +21,4 @@ I assume you have already set up MongoDB community edition in your local develop
 - mongod --config /usr/local/etc/mongod.conf
 - brew services start mongodb-community@4.2
 - mongo
-
 - teste
