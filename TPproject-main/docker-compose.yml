@@ -9,7 +9,7 @@ services:
       dockerfile: ./Dockerfile
     environment:
       PORT: 8000
-      DB: "mongodb://localadmin:<senhadobanco>@cluster0.0ovnp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+      DB: "mongodb://localadmin:{senhadobanco}@cluster0.0ovnp.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
     ports:
       - '8000:8000'
     networks:
