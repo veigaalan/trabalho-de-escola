@@ -25,7 +25,7 @@ export class AddStudentComponent implements OnInit {
   readonly separatorKeysCodes: number[] = [ENTER, COMMA];
   studentForm: FormGroup;
   subjectArray: Subject[] = [];
-  SectioinArray: any = ['A', 'B', 'C', 'D', 'E'];
+  SectioinArray: string[] = ['Sala 1', 'Sala 2', 'Sala 3']; // Atualizado para incluir as opções de Sala
 
   ngOnInit() {
     this.submitBookForm();
@@ -50,11 +50,11 @@ export class AddStudentComponent implements OnInit {
     })
   }
 
-  /* Add dynamic languages */
+  /* Add dynamic subjects */
   add(event: MatChipInputEvent): void {
     const input = event.input;
     const value = event.value;
-    // Add language
+    // Add subject
     if ((value || '').trim() && this.subjectArray.length < 5) {
       this.subjectArray.push({ name: value.trim() })
     }
@@ -64,7 +64,7 @@ export class AddStudentComponent implements OnInit {
     }
   }
 
-  /* Remove dynamic languages */
+  /* Remove dynamic subjects */
   remove(subject: Subject): void {
     const index = this.subjectArray.indexOf(subject);
     if (index >= 0) {
@@ -85,7 +85,7 @@ export class AddStudentComponent implements OnInit {
     return this.studentForm.controls[controlName].hasError(errorName);
   }  
 
-  /* Submit book */
+  /* Submit student */
   submitStudentForm() {
     if (this.studentForm.valid) {
       this.studentApi.AddStudent(this.studentForm.value).subscribe(res => {
