@@ -1,6 +1,6 @@
 <!-- Title group  -->
 <div class="title-group">
-  <h1 class="mat-h1">Add Student</h1>
+  <h1 class="mat-h1">Editar informações</h1>
   <mat-divider fxFlex="1 0"></mat-divider>
 </div>
 
@@ -12,7 +12,7 @@
       <div class="controlers-wrapper">
         <!-- Name -->
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Student name" formControlName="student_name">
+          <input matInput placeholder="Nome do Estudante" formControlName="student_name">
           <mat-error *ngIf="handleError('student_name', 'required')">
             You must provide a<strong>student name</strong>
           </mat-error>
@@ -20,7 +20,7 @@
 
         <!-- Email -->
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Student email" formControlName="student_email">
+          <input matInput placeholder="E-mail" formControlName="student_email">
           <mat-error *ngIf="handleError('student_email', 'required')">
             You must provide a<strong>student email</strong>
           </mat-error>
@@ -28,13 +28,13 @@
 
         <!-- Section -->
         <mat-form-field>
-          <mat-label>Section</mat-label>
+          <mat-label>Sala</mat-label>
           <mat-select [(value)]="selected" formControlName="section">
             <mat-option [value]="sectioinArray" *ngFor="let sectioinArray of SectioinArray">{{sectioinArray}}
             </mat-option>
           </mat-select>
           <mat-error *ngIf="handleError('section', 'required')">
-            Section is required
+            Obrigatório
           </mat-error>
         </mat-form-field>
       </div>
@@ -51,7 +51,7 @@
               {{subjectArray.name}}
               <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
             </mat-chip>
-            <input placeholder="Add subject" [matChipInputFor]="chipList"
+            <input placeholder="Matérias Escolares" [matChipInputFor]="chipList"
               [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
               (matChipInputTokenEnd)="add($event)">
           </mat-chip-list>
@@ -62,21 +62,22 @@
 
         <!-- Date of birth -->
         <mat-form-field>
-          <input matInput readonly [matDatepicker]="picker" placeholder="Date of birth" formControlName="dob"
+          <input matInput readonly [matDatepicker]="picker" placeholder="Data de Nascimento" formControlName="dob"
             (dateChange)="formatDate($event)">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
           <mat-error *ngIf="handleError('dob', 'required')">
-            Date of birth is required
+            Obrigatório
           </mat-error>
         </mat-form-field>
 
         <!-- Gender -->
         <div class="misc-bottom-padding">
-          <mat-label>Gender:</mat-label>
+          <mat-label>Gênero:</mat-label>
           <mat-radio-group aria-label="Select an option" formControlName="gender">
-            <mat-radio-button value="Male">Male</mat-radio-button>
-            <mat-radio-button value="Female">Female</mat-radio-button>
+            <mat-radio-button value="Masculino">Masculino</mat-radio-button>
+            <mat-radio-button value="Feminino">Feminino</mat-radio-button>
+            <mat-radio-button value="Não Informar">Nao Informado</mat-radio-button>
           </mat-radio-group>
         </div>
       </div>
@@ -86,7 +87,7 @@
     <mat-card>
       <div class="full-wrapper button-wrapper">
         <div class="button-wrapper">
-          <button mat-flat-button color="warn">Update</button>
+          <button mat-flat-button color="warn">Enviar Alterações </button>
         </div>
       </div>
     </mat-card>
